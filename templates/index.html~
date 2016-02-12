@@ -11,6 +11,7 @@
             {% for obj in object_list['features'] %}
             <tr>
                 <td>{{ obj['properties']['Name']}}</td>
+            </tr>
                 <td>{{ obj['properties']['Link']}}</td>
             </tr>
             {% endfor %}

@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en">
+    <head></head>
+    <body> 
+        {% for row in object_list['features'] %}
+                <h1>{{ row['properties']['Name'] }}</h1>
+                {% endfor %}     
+    </body>
+</html>  
