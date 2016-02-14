@@ -12,14 +12,8 @@ def get_json():
 
 data_stationen = get_json()
 
-@app.route("/")
-def index():
-    template='index.html'
-    object_list = get_json()
-    return render_template(template, object_list=object_list)
-
 def zahl():
-    zahl = 0
+    zahl = 1
     for object in data_stationen['features']:
         object['properties']['ID'] = zahl
         zahl += 1
@@ -32,13 +26,19 @@ def myid():
     for object in zahl_data['features']:
         return(object['properties']['ID'])
 
+@app.route("/")
+def index():
+    template='index.html'
+    object_list = zahl()
+    return render_template(template, object_list=object_list)
+
     
 @app.route('/<row_id>/')
 def detail(row_id):
     template = 'detail.html'
     object_list = zahl()
     for row in data_stationen['features']:
-        if row['properties']['ID'] == 3:
+        if row['properties']['ID'] == int(row_id):
             return render_template(template, object=row)
     
 if __name__=='__main__':

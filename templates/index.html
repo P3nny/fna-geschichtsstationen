@@ -15,7 +15,6 @@
             {% for obj in object_list['features'] %}
             <tr>
             <td><a href="{{ obj['properties']['ID'] }}/">{{ obj['properties']['Name'] }}</a></td>
-            
             </tr>
             {% endfor %}
         </table>
@@ -28,10 +27,6 @@
             });
          
              map.addLayer(mapquestLayer);
-             
-            var data = object_list;
-            var dataLayer = L.geoJson(data);
-            map.addLayer(dataLayer);
 
             
             
