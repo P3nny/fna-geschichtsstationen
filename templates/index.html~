@@ -1,18 +1,114 @@
 <!doctype html>
 <html lang="en">
-    <head></head>
+    <head>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+        <script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js?2"></script>
+ 
+    </head>
     <body>
+     <div id="map" style="width:100%; height:300px;"></div>
         <h1>Geschichtsstationen Moers</h1>
             <table border=1 cellpadding=7>
             <tr>
                 <th>Name</th>
             </tr>
-            {% for object in object_list['features'] %}
+            {% for obj in object_list['features'] %}
             <tr>
-            <td><a href="{{ object['properties']['ID'] }}/">{{ object['properties']['Name'] }}</a></td>
+            <td><a href="{{ obj['properties']['ID'] }}/">{{ obj['properties']['Name'] }}</a></td>
             
             </tr>
             {% endfor %}
         </table>
+              <script type="text/javascript">
+            var map = L.map('map').setView([51.4515, 6.6263], 15);
+            var mapquestLayer = new L.TileLayer('http://{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
+                maxZoom: 18,
+                attribution: 'Data, imagery and map information provided by <a href="http://open.mapquest.co.uk" target="_blank">MapQuest</a>,<a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> and contributors.',
+                subdomains: ['otile1','otile2','otile3','otile4']
+            });
+         
+             map.addLayer(mapquestLayer);
+             
+            var geojsonFeatures = [{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Geschichtsstation 42: Friedhof Lohmannsheide","link": "/de/geodaten/geschichtsstation-42-friedhof-lohmannsheide/"},"geometry": {"type": "Point","coordinates": [6.6627,51.4821]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Denkmaltafel 07: Wittfeldsche Heilanstalt","link": "/de/geodaten/denkmaltafel-07-wittfeldsche-heilanstalt/"},"geometry": {"type": "Point","coordinates": [6.6246,51.4499]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Geschichtsstation 11: Juden in Moers II","link": "/de/geodaten/geschichtsstation-11-juden-in-moers-ii/"},"geometry": {"type": "Point","coordinates": [6.6271,51.4513]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Geschichtsstation 20: Alt-Moers","link": "/de/geodaten/geschichtsstation-20-alt-moers/"},"geometry": {"type": "Point","coordinates": [6.6285,51.455]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Geschichtsstation 09: Moers zur NS-Zeit","link": "/de/geodaten/geschichtsstation-09-moers-zur-ns-zeit/"},"geometry": {"type": "Point","coordinates": [6.6252,51.4503]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Denkmaltafel 33: Industriedenkmal Schlachthof","link": "/de/geodaten/denkmaltafel-33-industriedenkmal-schlachthof/"},"geometry": {"type": "Point","coordinates": [6.6417,51.4483]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Geschichtsstation 12: Juden in Moers I","link": "/de/geodaten/geschichtsstation-12-juden-in-moers-i/"},"geometry": {"type": "Point","coordinates": [6.628,51.4517]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Denkmaltafel 23: Volksschulen/Lyzeum","link": "/de/geodaten/denkmaltafel-23-volksschulen-lyzeum/"},"geometry": {"type": "Point","coordinates": [6.6293,51.4494]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Denkmaltafel 14: Peschkenhaus","link": "/de/geodaten/denkmaltafel-14-peschkenhaus/"},"geometry": {"type": "Point","coordinates": [6.6249,51.4516]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Denkmaltafel 16: HaagstraÃŸe 53 -63","link": "/de/geodaten/denkmaltafel-16-haagstrasse-53-63/"},"geometry": {"type": "Point","coordinates": [6.6231,51.4516]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Geschichtsstation 21: Gymnasium Adolfinum","link": "/de/geodaten/geschichtsstation-21-gymnasium-adolfinum/"},"geometry": {"type": "Point","coordinates": [6.6296,51.4532]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Denkmaltafel 02: LÃ¶wenapotheke","link": "/de/geodaten/denkmaltafel-02-loewenapotheke/"},"geometry": {"type": "Point","coordinates": [6.6261,51.4515]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Geschichtsstation 22: Hanns-Dieter-HÃ¼sch-Bildungszentrum","link": "/de/geodaten/geschichtsstation-22-hanns-dieter-huesch-bildungszentrum/"},"geometry": {"type": "Point","coordinates": [6.6313,51.453]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Geschichtsstation 15: Neustadt (Neutor)","link": "/de/geodaten/geschichtsstation-15-neustadt-neutor/"},"geometry": {"type": "Point","coordinates": [6.6232,51.4522]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Geschichtstation 03: Evangelische Stadtkirche","link": "/de/geodaten/geschichtstation-03-evangelische-stadtkirche/"},"geometry": {"type": "Point","coordinates": [6.6256,51.4511]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Denkmaltafel 43: RheinpreuÃŸen Schacht V","link": "/de/geodaten/denkmaltafel-43-rheinpreussen-schacht-v/"},"geometry": {"type": "Point","coordinates": [6.6376,51.4691]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Geschichtsstation 44: Repelen","link": "/de/geodaten/geschichtsstation-44-repelen/"},"geometry": {"type": "Point","coordinates": [6.6086,51.4889]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Denkmaltafel 17: Haus RÃ¶sgen","link": "/de/geodaten/denkmaltafel-17-haus-roesgen/"},"geometry": {"type": "Point","coordinates": [6.6265,51.4527]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Geschichtsstation 18: Rathaus","link": "/de/geodaten/geschichtsstation-18-rathaus/"},"geometry": {"type": "Point","coordinates": [6.6264,51.4533]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Geschichtsstation 41: RheinpreuÃŸen-Treibstoffwerk","link": "/de/geodaten/geschichtsstation-41-rheinpreussen-treibstoffwerk/"},"geometry": {"type": "Point","coordinates": [6.6482,51.4698]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Geschichtsstation 45: Kurbetrieb Jungborn","link": "/de/geodaten/geschichtsstation-45-kurbetrieb-jungborn/"},"geometry": {"type": "Point","coordinates": [6.6056,51.4842]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Geschichtsstation 40: Friedhof Meerbeck","link": "/de/geodaten/geschichtsstation-40-friedhof-meerbeck/"},"geometry": {"type": "Point","coordinates": [6.6453,51.461]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Geschichtsstation 37: Siedlung Meerbeck-HochstraÃŸ","link": "/de/geodaten/geschichtsstation-37-siedlung-meerbeck-hochstrass/"},"geometry": {"type": "Point","coordinates": [6.6445,51.4595]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Geschichtsstation 04: Schloss","link": "/de/geodaten/geschichtsstation-04-schloss/"},"geometry": {"type": "Point","coordinates": [6.6245,51.4497]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Geschichtsstation 39: Industriedenkmal RheinpreuÃŸen, Schacht IV","link": "/de/geodaten/geschichtsstation-39-industriedenkmal-rheinpreussen-schacht-iv/"},"geometry": {"type": "Point","coordinates": [6.6643,51.4546]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Geschichtsstation 08: Moers als Kreisstadt","link": "/de/geodaten/geschichtsstation-08-moers-als-kreisstadt/"},"geometry": {"type": "Point","coordinates": [6.6249,51.4501]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Geschichtsstation 29: Kapellen","link": "/de/geodaten/geschichtsstation-29-kapellen/"},"geometry": {"type": "Point","coordinates": [6.5944,51.4167]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Geschichtsstation 26: Martinstift","link": "/de/geodaten/geschichtsstation-26-martinstift/"},"geometry": {"type": "Point","coordinates": [6.6218,51.4417]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Geschichtsstation 38: Post in Moers","link": "/de/geodaten/geschichtsstation-38-post-in-moers/"},"geometry": {"type": "Point","coordinates": [6.6554,51.4549]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Geschichtsstation 13: Neumarkt","link": "/de/geodaten/geschichtsstation-13-neumarkt/"},"geometry": {"type": "Point","coordinates": [6.6253,51.4517]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Geschichtsstation 10: Lehrerseminar","link": "/de/geodaten/geschichtsstation-10-lehrerseminar/"},"geometry": {"type": "Point","coordinates": [6.6265,51.4507]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Denkmaltafel 30: Schloss Lauersfort","link": "/de/geodaten/denkmaltafel-30-schloss-lauersfort/"},"geometry": {"type": "Point","coordinates": [6.6074,51.4112]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Denkmaltafel 36: Stiftung Bethanien","link": "/de/geodaten/denkmaltafel-36-stiftung-bethanien/"},"geometry": {"type": "Point","coordinates": [6.634,51.461]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Geschichtsstation 05: Katholische Kirchen","link": "/de/geodaten/geschichtsstation-05-katholische-kirchen/"},"geometry": {"type": "Point","coordinates": [6.6252,51.4496]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Geschichtsstation 46: Siedlung Repelen","link": "/de/geodaten/geschichtsstation-46-siedlung-repelen/"},"geometry": {"type": "Point","coordinates": [6.5871,51.4889]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Geschichtsstation 47: ENNI","link": "/de/geodaten/geschichtsstation-47-enni/"},"geometry": {"type": "Point","coordinates": [6.6319,51.4479]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Geschichtsstation 35: Friedhof Moers","link": "/de/geodaten/geschichtsstation-35-friedhof-moers/"},"geometry": {"type": "Point","coordinates": [6.6385,51.4522]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Geschichtsstation 06: Moers als Festungsstadt I","link": "/de/geodaten/geschichtsstation-06-moers-als-festungsstadt-i/"},"geometry": {"type": "Point","coordinates": [6.6222,51.4495]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Geschichtsstation  32: Mattheck","link": "/de/geodaten/geschichtsstation-32-mattheck/"},"geometry": {"type": "Point","coordinates": [6.6439,51.4408]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Geschichtsstation 01: Altstadt","link": "/de/geodaten/geschichtsstation-01-altstadt/"},"geometry": {"type": "Point","coordinates": [6.6263,51.4515]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Geschichtsstation 28: Naturfreibad Bettenkamp","link": "/de/geodaten/geschichtsstation-28-naturfreibad-bettenkamp/"},"geometry": {"type": "Point","coordinates": [6.6104,51.4385]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Denkmaltafel 27: Vinner Wasserturm","link": "/de/geodaten/denkmaltafel-27-vinner-wasserturm/"},"geometry": {"type": "Point","coordinates": [6.6347,51.4403]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Denkmaltafel 34: Bahnhof Moers","link": "/de/geodaten/denkmaltafel-34-bahnhof-moers/"},"geometry": {"type": "Point","coordinates": [6.6413,51.4502]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Geschichtsstation 24: Moers als Festungsstadt III","link": "/de/geodaten/geschichtsstation-24-moers-als-festungsstadt-iii/"},"geometry": {"type": "Point","coordinates": [6.6278,51.4491]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Geschichtsstation 31: Kastell Asciburgium","link": "/de/geodaten/geschichtsstation-31-kastell-asciburgium/"},"geometry": {"type": "Point","coordinates": [6.6699,51.4327]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Geschichtsstation 19: Moers als Festungsstadt II","link": "/de/geodaten/geschichtsstation-19-moers-als-festungsstadt-ii/"},"geometry": {"type": "Point","coordinates": [6.625,51.4539]}},{"type": "Feature","properties": {"popuptype": "Station","type": "Geschichte", "name": "Geschichtsstation 25: Schlosspark","link": "/de/geodaten/geschichtsstation-25-schlosspark/"},"geometry": {"type": "Point","coordinates": [6.6242,51.4485]}},]
+  
+  var icon_normal = L.icon({
+  iconUrl: '/c12571d10045b8d8/files/baumicon.png/$file/baumicon.png',
+  iconSize: [32, 37],
+  iconAnchor: [16, 37],
+  popupAnchor: [0, -37]
+})
+
+var options = {
+  "Station": {
+    icon: icon_normal
+  }}
+
+var area = window.area = [];
+
+function onEachFeature(feature, layer) {
+  coords = feature.geometry.coordinates
+  area.push([coords[1], coords[0]])
+  if (feature.properties && feature.properties.name && feature.properties.link) {
+    layer.bindPopup('<h3>' + feature.properties.name + '</h3><p><a href="' + feature.properties.link + '" >Zur Geschichtsstation</a></p>');
+  }
+}
+
+function pointToLayer(feature, latlng) {
+  var option = options[feature.properties.type];
+  
+  return L.marker(latlng, option)
+}
+
+var baseMap = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: 'Kartendaten &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>-Mitwirkende, Kartenkacheln OSM <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+  maxZoom: 18
+});
+
+var openPtMap = L.tileLayer('http://openptmap.de/tiles/{z}/{x}/{y}.png', {
+  attribution: 'Ã–PNV-Karte <a href="http://openptmap.de/">openptmap.de</a>',
+  maxZoom: 18
+});
+
+var parkingMap = L.tileLayer('http://toolserver.org/tiles/parktrans/{z}/{x}/{y}.png', {
+  attribution: 'Parkkarte <a href="http://parking.openstreetmap.de/">parking.openstreetmap.de</a>',
+  maxZoom: 18
+});
+
+var mapquestMap = L.tileLayer('http://otile1.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
+  attribution: 'Kartenkacheln <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png">',
+  maxZoom: 18
+});
+
+var map = window.map = L.map('map', {
+  layers: [baseMap]
+});
+
+L.geoJson(geojsonFeatures, {
+  onEachFeature: onEachFeature,
+  pointToLayer: pointToLayer
+}).addTo(map);
+
+map.fitBounds(area);
+
+var baseMaps = {
+  "Mapnik": baseMap,
+  "Mapquest": mapquestMap
+};
+
+var overlayMaps = {
+  "Ã–PNV-Karte": openPtMap,
+  "Parkkarte": parkingMap
+};
+
+map.attributionControl.setPrefix(false);
+map.attributionControl.addAttribution("Marker <a href=\"http://mapicons.nicolasmollet.com/\">Maps Icons Collection</a> CC-BY-SA");
+
+L.control.layers(baseMaps, overlayMaps)
+.addTo(map);
+
+            
+            
+        </script>
+        
     </body>
 </html>
