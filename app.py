@@ -10,7 +10,7 @@ def get_json():
     data = r.json()
     return data
 
-data = get_json()
+data_stationen = get_json()
 
 @app.route("/")
 def index():
@@ -20,10 +20,10 @@ def index():
 
 def zahl():
     zahl = 0
-    for object in data['features']:
+    for object in data_stationen['features']:
         object['properties']['ID'] = zahl
         zahl += 1
-    return data
+    return data_stationen
     
 zahl_data = zahl()
 # print(zahl_data)
@@ -37,9 +37,9 @@ def myid():
 def detail(row_id):
     template = 'detail.html'
     object_list = zahl()
-    for obj in object_list['features']:
-        if obj['properties']['ID'] == row_id:
-            return render_template(template, object=obj)
+    for row in data_stationen['features']:
+        if row['properties']['ID'] == 3:
+            return render_template(template, object=row)
     
 if __name__=='__main__':
     app.run(debug=True, use_reloader=True)

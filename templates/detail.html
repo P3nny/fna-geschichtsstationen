@@ -2,8 +2,9 @@
 <html lang="en">
     <head></head>
     <body> 
-        {% for row in object_list['features'] %}
-                <h1>{{ row['properties']['Name'] }}</h1>
-                {% endfor %}     
+                <h1>{{  object['properties']['Name'] }}</h1>
+                <h2> {{ object['properties']['ID']   }}</h2> 
     </body>
 </html>  
+
+

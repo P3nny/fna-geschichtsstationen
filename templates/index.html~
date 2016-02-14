@@ -6,13 +6,11 @@
             <table border=1 cellpadding=7>
             <tr>
                 <th>Name</th>
-                <th>Link</th>
             </tr>
-            {% for obj in object_list['features'] %}
+            {% for object in object_list['features'] %}
             <tr>
-                <td>{{ obj['properties']['Name']}}</td>
-            </tr>
-                <td>{{ obj['properties']['Link']}}</td>
+            <td><a href="{{ object['properties']['ID'] }}/">{{ object['properties']['Name'] }}</a></td>
+            
             </tr>
             {% endfor %}
         </table>
