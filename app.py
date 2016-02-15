@@ -1,6 +1,7 @@
 
 from flask import Flask
 from flask import render_template
+from flask import abort
 import json
 import requests
 
@@ -15,6 +16,7 @@ data_stationen = get_json()
 
 def zahl():
     zahl = 1
+    data_stationen = get_json()
     for object in data_stationen['features']:
         object['properties']['ID'] = zahl
         object['geometry']['x'] = object['geometry']['coordinates'][:1]
@@ -39,9 +41,10 @@ def index():
 def detail(row_id):
     template = 'detail.html'
     object_list = zahl()
-    for row in data_stationen['features']:
+    for row in object_list['features']:
         if row['properties']['ID'] == int(row_id):
-            return render_template(template, object=row)
+            return render_template(template, object=row, object_list=object_list)
+    abort(404)
     
 if __name__=='__main__':
     app.run(debug=True, use_reloader=True)

@@ -48,7 +48,11 @@
             };
           var dataLayer = L.geoJson(data, {
                 onEachFeature: function(feature, layer) {
-                    layer.bindPopup(feature.properties.full_name);
+                    layer.bindPopup(
+                        '<a href="' + feature.properties.id + '/">' +
+                            feature.properties.full_name +
+                        '</a>'
+                    );
                 }
             });
             map.addLayer(dataLayer);

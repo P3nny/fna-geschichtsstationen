@@ -9,13 +9,13 @@
                 <div id="map" style="width:100%; height:300px;"></div>
                
                 
-                <h1>{{  object['properties']['Name'] }}</h1>
-                <h1>({{object['geometry']['y'] + object['geometry']['x'] }}) </h1>
-                <p>{{  object }}</p>
-                <a href="{{ object['properties']['Link'] }}/">{{ object['properties']['Link'] }}</a>
+                <h1>Geschichtsstation 12: Juden in Moers I</h1>
+                <h1>([51.4517, 6.628]) </h1>
+                <p>{u&#39;geometry&#39;: {&#39;y&#39;: [51.4517], &#39;x&#39;: [6.628], u&#39;type&#39;: u&#39;Point&#39;, u&#39;coordinates&#39;: [6.628, 51.4517]}, u&#39;type&#39;: u&#39;Feature&#39;, u&#39;properties&#39;: {u&#39;lat&#39;: u&#39;51.4517&#39;, u&#39;Link&#39;: u&#39;http://www.moers.de/C1257C84004E794D/html/28ADA59845894B32C1257CB5002DBD55?OpenDocument&amp;nocache=1&#39;, u&#39;lon&#39;: u&#39;6.628&#39;, u&#39;Name&#39;: u&#39;Geschichtsstation 12: Juden in Moers I&#39;, &#39;ID&#39;: 12}}</p>
+                <a href="http://www.moers.de/C1257C84004E794D/html/28ADA59845894B32C1257CB5002DBD55?OpenDocument&amp;nocache=1/">http://www.moers.de/C1257C84004E794D/html/28ADA59845894B32C1257CB5002DBD55?OpenDocument&amp;nocache=1</a>
                 
                 <script type="text/javascript">
-                 var map = L.map('map').setView({{  object['geometry']['y'] + object['geometry']['x']  }}, 17);
+                 var map = L.map('map').setView([51.4517, 6.628], 17);
                   var mapquestLayer = new L.TileLayer('http://{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
                 maxZoom: 18,
                 attribution: 'Data, imagery and map information provided by <a href="http://open.mapquest.co.uk" target="_blank">MapQuest</a>,<a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> and contributors.',
@@ -24,7 +24,7 @@
          
              map.addLayer(mapquestLayer);
              
-              var marker = L.marker({{object['geometry']['y'] + object['geometry']['x'] }}).addTo(map);
+              var marker = L.marker([51.4517, 6.628]).addTo(map);
               console.log(marker)
               
                 </script>
