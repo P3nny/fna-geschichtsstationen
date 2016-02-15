@@ -27,7 +27,29 @@
             });
          
              map.addLayer(mapquestLayer);
+             
+                          var data = {
+              "type": "FeatureCollection",
+              "features": [
+                {% for obj in object_list['features'] %}
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "full_name": "{{  obj['properties']['Name'] }}",
+                    "id": "{{ obj['properties']['ID'] }}"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [{{ obj['geometry']['coordinates']['x']}}, {{ obj['geometry']['coordinates']['y'] }}]
+                  }
+                }{% if not loop.last %},{% endif %}
+                {% endfor %}
+              ]
+            };
+            var dataLayer = L.geoJson(data);
+            map.addLayer(dataLayer);
 
+console.log(dataLayer)
             
             
         </script>

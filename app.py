@@ -1,3 +1,4 @@
+
 from flask import Flask
 from flask import render_template
 import json
@@ -16,11 +17,12 @@ def zahl():
     zahl = 1
     for object in data_stationen['features']:
         object['properties']['ID'] = zahl
+        object['geometry']['x'] = object['geometry']['coordinates'][:1]
+        object['geometry']['y'] = object['geometry']['coordinates'][1:]
         zahl += 1
     return data_stationen
     
 zahl_data = zahl()
-# print(zahl_data)
 
 def myid(): 
     for object in zahl_data['features']:
